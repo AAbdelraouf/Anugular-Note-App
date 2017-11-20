@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-app="myNoteApp" ng-controller="myNoteCtrl">
+
+<h2>Write notes below</h2>
+<textarea ng-model="message" cols="30" rows="5"></textarea>
+<p>
+<button ng-click="save()">Save</button>
+</p>
+
+<div>
+        <p>{{savedNote}}</p> <br>
+</div>
+
+<script>
+var app = angular.module("myNoteApp", []); 
+app.controller("myNoteCtrl", function($scope) {
+    $scope.save = function() {
+        $scope.savedNote = $scope.message;
+        $scope.message = "";
+    };
+});
+</script>
+
+</body>
+</html> 
+
